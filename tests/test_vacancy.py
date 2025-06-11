@@ -10,7 +10,7 @@ class TestVacancy(unittest.TestCase):
             url="https://hh.ru/vacancy/123",
             salary_from=100000,
             salary_to=150000,
-            description="Разработка на Python"
+            description="Разработка на Python",
         )
 
     def test_creation_valid(self):
@@ -39,12 +39,20 @@ class TestVacancy(unittest.TestCase):
     def test_comparison_methods(self):
         """Тест методов сравнения вакансий"""
         lower_salary = Vacancy(
-            "Junior Python", "Москва", "https://hh.ru/124",
-            50000, 80000, "Младший разработчик"
+            "Junior Python",
+            "Москва",
+            "https://hh.ru/124",
+            50000,
+            80000,
+            "Младший разработчик",
         )
         higher_salary = Vacancy(
-            "Senior Python", "Москва", "https://hh.ru/125",
-            200000, 250000, "Старший разработчик"
+            "Senior Python",
+            "Москва",
+            "https://hh.ru/125",
+            200000,
+            250000,
+            "Старший разработчик",
         )
 
         # Проверка операторов сравнения

@@ -7,13 +7,13 @@ class Vacancy:
     __slots__ = ("name", "area", "url", "salary_from", "salary_to", "description")
 
     def __init__(
-            self,
-            name: str,
-            area: str,
-            url: str,
-            salary_from: Optional[int],
-            salary_to: Optional[int],
-            description: str
+        self,
+        name: str,
+        area: str,
+        url: str,
+        salary_from: Optional[int],
+        salary_to: Optional[int],
+        description: str,
     ) -> None:
         self.name = name
         self.area = area
@@ -41,7 +41,11 @@ class Vacancy:
         if self.salary_to is not None:
             salary_info.append(f"до {self.salary_to}")
 
-        salary_str = "Зарплата: " + " ".join(salary_info) if salary_info else "Зарплата не указана"
+        salary_str = (
+            "Зарплата: " + " ".join(salary_info)
+            if salary_info
+            else "Зарплата не указана"
+        )
 
         return (
             f"Вакансия: {self.name}\n"
@@ -78,5 +82,5 @@ class Vacancy:
             "url": self.url,
             "salary_from": self.salary_from,
             "salary_to": self.salary_to,
-            "description": self.description
+            "description": self.description,
         }

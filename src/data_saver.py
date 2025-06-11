@@ -71,7 +71,7 @@ class JSONVacancyStorage(AbstractVacancyStorage):
                     url=item["url"],
                     salary_from=item["salary_from"],
                     salary_to=item["salary_to"],
-                    description=item["description"]
+                    description=item["description"],
                 )
 
                 if not criterion or criterion.lower() in vacancy.description.lower():

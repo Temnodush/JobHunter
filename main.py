@@ -49,7 +49,7 @@ def main() -> None:
                         url=item["alternate_url"],
                         salary_from=salary_from,
                         salary_to=salary_to,
-                        description=requirement
+                        description=requirement,
                     )
                     print(vacancy)
                     storage.add_vacancy(vacancy)
@@ -77,9 +77,9 @@ def main() -> None:
                 all_vacancies,
                 key=lambda v: max(
                     v.salary_to if v.salary_to is not None else 0,
-                    v.salary_from if v.salary_from is not None else 0
+                    v.salary_from if v.salary_from is not None else 0,
                 ),
-                reverse=True
+                reverse=True,
             )
 
             # Выводим ровно top_amount вакансий

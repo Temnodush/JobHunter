@@ -54,7 +54,7 @@ class HeadHunterAPI(JobPlatformAPI):
             "text": query,
             "area": area_id,
             "per_page": 100,
-            "only_with_salary": True
+            "only_with_salary": True,
         }
         try:
             data = self._connect_to_api(self.__base_url, params)

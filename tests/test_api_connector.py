@@ -7,7 +7,7 @@ class TestHeadHunterAPI(unittest.TestCase):
     def setUp(self):
         self.api = HeadHunterAPI()
 
-    @patch('requests.get')
+    @patch("requests.get")
     def test_get_area_id_success(self, mock_get):
         """Тест успешного получения ID региона"""
         mock_response = Mock()
@@ -21,9 +21,9 @@ class TestHeadHunterAPI(unittest.TestCase):
                         "id": 113,
                         "areas": [
                             {"name": "Санкт-Петербург", "id": 2},
-                            {"name": "Новосибирск", "id": 4}
-                        ]
-                    }
+                            {"name": "Новосибирск", "id": 4},
+                        ],
+                    },
                 ]
             }
         ]
@@ -36,7 +36,7 @@ class TestHeadHunterAPI(unittest.TestCase):
         # Регион не найден
         self.assertIsNone(self.api.get_area_id("Несуществующий город"))
 
-    @patch('requests.get')
+    @patch("requests.get")
     def test_get_area_id_failure(self, mock_get):
         """Тест ошибки при получении ID региона"""
         mock_response = Mock()
@@ -45,7 +45,7 @@ class TestHeadHunterAPI(unittest.TestCase):
 
         self.assertIsNone(self.api.get_area_id("Москва"))
 
-    @patch('requests.get')
+    @patch("requests.get")
     def test_get_vacancies_success(self, mock_get):
         """Тест успешного получения вакансий"""
         mock_response = Mock()
@@ -57,7 +57,7 @@ class TestHeadHunterAPI(unittest.TestCase):
                     "area": {"name": "Москва"},
                     "alternate_url": "https://hh.ru/vacancy/123",
                     "salary": {"from": 100000, "to": 150000},
-                    "snippet": {"requirement": "Опыт работы с Python"}
+                    "snippet": {"requirement": "Опыт работы с Python"},
                 }
             ]
         }
@@ -67,7 +67,7 @@ class TestHeadHunterAPI(unittest.TestCase):
         self.assertEqual(len(vacancies), 1)
         self.assertEqual(vacancies[0]["name"], "Python Developer")
 
-    @patch('requests.get')
+    @patch("requests.get")
     def test_get_vacancies_failure(self, mock_get):
         """Тест ошибки при получении вакансий"""
         mock_response = Mock()
